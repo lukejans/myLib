@@ -83,13 +83,14 @@ body {
 .header-home {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  padding: 10px;
   gap: 20px;
-  border: 1px solid var(--off-white);
+  border: 0.5px solid var(--grey);
   background-color: var(--black2);
   height: 107.5px;
-  top: 53.5px;
+  top: 55px;
 }
 .profile {
   display: flex;
@@ -109,16 +110,49 @@ body {
 nav {
   position: relative;
   font-size: 1.25rem;
-  top: 107px;
-  left: 107px;
+  top: 54px;
+  left: 0px;
 }
 ul {
   list-style: none;
 }
-ul > li {
+li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
-  border: 1px solid var(--off-white);
+  border: 0.5px solid var(--grey);
+  border-bottom: none;
   background-color: var(--black2);
-  width: 160.5px;
+  color: var(--grey);
+  width: 214.5px;
   height: 53.5px;
+}
+li:last-child {
+  border-bottom: 0.5px solid var(--grey);
+}
+li > svg {
+  width: 25px;
+  height: 25px;
+  fill: var(--grey);
+}
+li:hover > svg {
+  fill: var(--orange);
+}
+li:hover {
+  color: var(--orange);
+}
+.waze-text {
+  position: relative;
+}
+video {
+  position: absolute;
+  top: 161.5px;
+  left: 214px;
+  width: 160.5px;
+  height: 160.6px;
+  border-top: 0.5px solid var(--grey);
+  border-left: 0.5px solid var(--grey);
+  background-color: var(--black2);
 }
