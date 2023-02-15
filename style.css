@@ -17,6 +17,7 @@
   --f2: 'Roboto Mono', monospace;
 }
 body {
+  font-family: var(--f2);
   background-color: var(--black);
   color: var(--off-white);
   letter-spacing: 1.5px;
@@ -79,6 +80,7 @@ body {
   height: 750px;
 }
 /* intro header section */
+nav,
 .header-home {
   position: relative;
   display: flex;
@@ -103,4 +105,16 @@ body {
 .profile > img {
   width: 75px;
   height: 75px;
+}
+/* nav section */
+nav {
+  width: 160.5px;
+  height: 160.5px;
+  font-size: 1.25rem;
+}
+ul {
+  list-style: none;
+}
+ul > li {
+  margin: 12px;
 }

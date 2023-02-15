@@ -98,13 +98,3 @@ function unpermute(term, curr) {
   clearInterval(ewig);
   document.getElementById(curr).innerHTML = term;
 }
-
-{
-  /* <span
-      id="permutable1"
-      onmouseover="permute('permutable1')"
-      onmouseleave="unpermute('Browse','permutable1')"
-      onclick="unpermute('Browse','permutable1')"
-      >Browse</span
-    > */
-}
