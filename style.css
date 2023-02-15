@@ -15,7 +15,6 @@
 
   --f1: 'Raleway', sans-serif;
   --f2: 'Roboto Mono', monospace;
-  --f3: 'Space Grotesk', 'Times New Roman', Times, sans-serif;
 }
 body {
   background-color: var(--black);
@@ -77,8 +76,9 @@ body {
 .container {
   position: relative;
   z-index: 2;
+  height: 750px;
 }
-
+/* intro header section */
 .header-home {
   position: relative;
   display: flex;
@@ -100,23 +100,7 @@ body {
 .header-home h4 {
   margin-top: 12px;
 }
-
 .profile > img {
   width: 75px;
   height: 75px;
-}
-.bottom {
-  position: relative;
-}
-.bottom p {
-  font-family: var(--f2);
-  color: var(--grey);
-  padding: 0 12px 12px 12px;
-  text-align: center;
-}
-.f3 {
-  font-family: var(--f3);
-  color: var(--grey);
-  font-weight: 700;
-  font-size: 3rem;
 }
