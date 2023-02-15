@@ -80,7 +80,6 @@ body {
   height: 750px;
 }
 /* intro header section */
-nav,
 .header-home {
   position: relative;
   display: flex;
@@ -108,13 +107,18 @@ nav,
 }
 /* nav section */
 nav {
-  width: 160.5px;
-  height: 160.5px;
+  position: relative;
   font-size: 1.25rem;
+  top: 107px;
+  left: 107px;
 }
 ul {
   list-style: none;
 }
 ul > li {
-  margin: 12px;
+  cursor: pointer;
+  border: 1px solid var(--off-white);
+  background-color: var(--black2);
+  width: 160.5px;
+  height: 53.5px;
 }
