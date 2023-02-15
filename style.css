@@ -4,28 +4,23 @@
   padding: 0;
   box-sizing: border-box;
 }
-img {
-  max-width: 100px;
-  border-radius: 100%;
-  background-color: var(--black);
-  border: 2px solid var(--black);
-}
-/* SETUP */
+
 :root {
-  /* color pallet */
   --orange: rgb(240, 101, 67);
   --yellow: rgb(240, 157, 81);
-  --grey: rgb(224, 223, 213);
+  --grey: rgb(169, 169, 169);
   --off-white: rgb(232, 233, 235);
   --black: rgb(28, 28, 28);
-  --black2: rgb(18, 18, 18);
-  /* fonts */
-  --fm: 'Lexend', sans-serif, monospace;
+  --black2: rgb(14, 14, 14);
+
+  --f1: 'Raleway', sans-serif;
+  --f2: 'Roboto Mono', monospace;
+  --f3: 'Space Grotesk', 'Times New Roman', Times, sans-serif;
 }
-/* LAYOUT */
 body {
   background-color: var(--black);
-  font-family: var(--fm);
+  color: var(--off-white);
+  letter-spacing: 1.5px;
 }
 .wrapper {
   display: flex;
@@ -33,14 +28,95 @@ body {
   align-items: center;
   min-height: 100vh;
 }
-.container {
-  width: 375px;
-  height: 748px;
-  padding: 12px;
+.f1 {
+  font-family: var(--f1);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.f2 {
+  font-family: var(--f2);
+  color: var(--grey);
+}
+
+.background {
   position: relative;
+  width: 375px;
+  height: 750px;
   overflow: hidden;
+}
+.background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to top,
+    rgb(14, 14, 14) 0%,
+    rgba(14, 14, 14, 0.9) 30%,
+    rgba(14, 14, 14, 0.4)
+  );
+}
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(14, 14, 14);
+  background-size: 53.5px 53.5px;
+  background-image: linear-gradient(
+      to right,
+      var(--off-white) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--off-white) 1px, transparent 1px);
+}
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+.header-home {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid var(--off-white);
   background-color: var(--black2);
-  background-size: 41.5px 41.5px;
-  background-image: linear-gradient(to right, grey 1px, transparent 1px),
-    linear-gradient(to bottom, grey 1px, transparent 1px);
+  height: 107.5px;
+  top: 53.5px;
+}
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.header-home h1,
+.header-home h4 {
+  margin-top: 12px;
+}
+
+.profile > img {
+  width: 75px;
+  height: 75px;
+}
+.bottom {
+  position: relative;
+}
+.bottom p {
+  font-family: var(--f2);
+  color: var(--grey);
+  padding: 0 12px 12px 12px;
+  text-align: center;
+}
+.f3 {
+  font-family: var(--f3);
+  color: var(--grey);
+  font-weight: 700;
+  font-size: 3rem;
 }
