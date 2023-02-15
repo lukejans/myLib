@@ -26,12 +26,12 @@ function addToLibrary(book) {
 /* HOVER ANIMATION
   next lexicographically permuted string of the original word
 */
-let ewig = '';
-let holder = '';
-function permuter(word) {
-  let ind = 0;
-  let gate = 0;
-  let permuda = [
+let currentWord = '';
+let output = '';
+function generateNextPermutation(word) {
+  let index = 0;
+  let hasCarry = 0;
+  let permutationAlphabet = [
     'a',
     'b',
     'c',
@@ -59,42 +59,46 @@ function permuter(word) {
     'y',
     'z',
   ];
+  /* convert word to lowercase and then to an array 
+    of numbers representing the character codes */
   word = word.toLowerCase();
-  let polygon = [];
-  for (ind = 0; ind < word.length; ind++) {
-    polygon[ind] = word.charCodeAt(ind) - 97;
+  let chars = [];
+  for (index = 0; index < word.length; index++) {
+    chars[index] = word.charCodeAt(index) - 97;
   }
-  if (polygon[polygon.length - 1] < 25) {
-    polygon[polygon.length - 1]++;
+  // generate next permutation of character codes
+  if (chars[chars.length - 1] < 25) {
+    chars[chars.length - 1]++;
   } else {
-    polygon[polygon.length - 1] = 0;
-    for (ind = polygon.length - 2; ind > -1; ind--) {
-      if (polygon[ind] < 25) {
-        polygon[ind]++;
-        gate++;
+    chars[chars.length - 1] = 0;
+    for (index = chars.length - 2; index > -1; index--) {
+      if (chars[index] < 25) {
+        chars[index]++;
+        hasCarry++;
         break;
       } else {
-        polygon[ind] = 0;
+        chars[index] = 0;
       }
     }
-    if (gate == 0) {
-      polygon.unshift(0);
+    if (hasCarry == 0) {
+      chars.unshift(0);
     }
   }
-  holder = permuda[polygon[0]].toUpperCase();
-  for (ind = 1; ind < polygon.length; ind++) {
-    holder = holder + permuda[polygon[ind]];
+  // convert array of character codes back to a string
+  output = permutationAlphabet[chars[0]].toUpperCase();
+  for (index = 1; index < chars.length; index++) {
+    output = output + permutationAlphabet[chars[index]];
   }
-  return holder;
+  return output;
 }
-function permute(curr) {
+function startPermutationAnimation(curr) {
   let word1 = document.getElementById(curr).innerHTML;
-  ewig = setInterval(function () {
-    document.getElementById(curr).innerHTML = permuter(word1);
-    word1 = holder;
+  currentWord = setInterval(function () {
+    document.getElementById(curr).innerHTML = generateNextPermutation(word1);
+    word1 = output;
   }, 1);
 }
-function unpermute(term, curr) {
-  clearInterval(ewig);
+function stopPermutationAnimation(term, curr) {
+  clearInterval(currentWord);
   document.getElementById(curr).innerHTML = term;
 }
