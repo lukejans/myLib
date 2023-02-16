@@ -151,9 +151,8 @@ li:hover {
   color: var(--orange);
 }
 video {
-  width: 164px;
+  width: 163px;
   height: 165px;
   background-color: var(--black2);
   border-top: 0.5px solid var(--grey);
-  border-right: 0.5px solid var(--grey);
 }
