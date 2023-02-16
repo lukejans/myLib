@@ -120,7 +120,7 @@ body {
   display: flex;
 }
 nav {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 ul {
   list-style: none;
@@ -150,8 +150,9 @@ li:hover {
   color: var(--orange);
 }
 video {
-  width: 165px;
+  width: 164px;
   height: 165px;
   background-color: var(--black2);
   border-top: 0.5px solid var(--grey);
+  border-right: 0.5px solid var(--grey);
 }
