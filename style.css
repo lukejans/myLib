@@ -92,7 +92,8 @@ body {
   border: 0.5px solid var(--grey);
   background-color: var(--black2);
   height: 107.5px;
-  top: 55px;
+  width: 100%;
+  top: 54px;
 }
 .profile {
   display: flex;
@@ -112,7 +113,7 @@ body {
 nav {
   position: relative;
   font-size: 1.25rem;
-  top: 54px;
+  top: 53.5px;
   left: 0px;
 }
 ul {
@@ -150,8 +151,8 @@ li:hover {
 }
 video {
   position: absolute;
-  top: 161.5px;
-  left: 214px;
+  top: 161px;
+  left: 213.5px;
   width: 160.5px;
   height: 160.6px;
   border-top: 0.5px solid var(--grey);
