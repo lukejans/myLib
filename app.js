@@ -102,3 +102,13 @@ function stopPermutationAnimation(term, curr) {
   clearInterval(currentWord);
   document.getElementById(curr).innerHTML = term;
 }
+
+// /* SPIN ANIMATION */
+// const settings = document.querySelector('.settings');
+
+// settings.addEventListener('click', function (e) {
+//   e.preventDefault();
+//   settings.classList.remove('spin');
+//   void settings.offsetWidth;
+//   settings.classList.add('spin');
+// });
