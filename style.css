@@ -68,6 +68,7 @@ body {
   left: 0;
   background-color: rgb(14, 14, 14);
   background-size: 55px 55px;
+  border-right: 0.5px solid var(--grey);
   background-image: linear-gradient(
       to right,
       var(--off-white) 1px,
