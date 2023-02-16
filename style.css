@@ -78,6 +78,7 @@ body {
   position: relative;
   z-index: 2;
   height: 750px;
+  overflow: hidden;
 }
 /* intro header section */
 .header-home {
