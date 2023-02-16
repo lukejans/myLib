@@ -126,7 +126,6 @@ li {
   gap: 10px;
   cursor: pointer;
   border: 0.5px solid var(--grey);
-  border-bottom: none;
   background-color: var(--black2);
   color: var(--grey);
   width: 214.5px;
@@ -155,7 +154,6 @@ video {
   left: 213.5px;
   width: 160.5px;
   height: 160.6px;
-  border-top: 0.5px solid var(--grey);
-  border-left: 0.5px solid var(--grey);
+  border: 0.5px solid var(--grey);
   background-color: var(--black2);
 }
