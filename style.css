@@ -28,6 +28,7 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+
 .f1 {
   font-family: var(--f1);
   font-size: 1.5rem;
@@ -37,7 +38,7 @@ body {
   font-family: var(--f2);
   color: var(--grey);
 }
-
+/* background grid + gradient */
 .background {
   position: relative;
   width: 375px;
@@ -74,6 +75,7 @@ body {
     ),
     linear-gradient(to bottom, var(--off-white) 1px, transparent 1px);
 }
+/* general positioning */
 .container {
   position: relative;
   z-index: 2;
@@ -81,19 +83,23 @@ body {
   height: 100%;
   overflow: hidden;
 }
+.top-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 53.5px;
+  border: 0.5px solid var(--grey);
+}
 /* intro header section */
 .header-home {
-  position: relative;
   display: flex;
   justify-content: start;
   align-items: center;
   padding: 10px;
   gap: 20px;
-  border: 0.5px solid var(--grey);
   background-color: var(--black2);
   height: 107.5px;
   width: 100%;
-  top: 54px;
 }
 .profile {
   display: flex;
@@ -110,11 +116,11 @@ body {
   height: 75px;
 }
 /* nav section */
+.navigation {
+  display: flex;
+}
 nav {
-  position: relative;
   font-size: 1.25rem;
-  top: 53.5px;
-  left: 0px;
 }
 ul {
   list-style: none;
@@ -125,14 +131,12 @@ li {
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  border: 0.5px solid var(--grey);
   background-color: var(--black2);
+  border-top: 0.5px solid var(--grey);
+  border-right: 0.5px solid var(--grey);
   color: var(--grey);
-  width: 214.5px;
+  width: 214px;
   height: 53.5px;
-}
-li:last-child {
-  border-bottom: 0.5px solid var(--grey);
 }
 li > svg {
   width: 25px;
@@ -145,15 +149,9 @@ li:hover > svg {
 li:hover {
   color: var(--orange);
 }
-.waze-text {
-  position: relative;
-}
 video {
-  position: absolute;
-  top: 161px;
-  left: 213.5px;
   width: 160.5px;
-  height: 160.6px;
-  border: 0.5px solid var(--grey);
+  height: 160.5px;
   background-color: var(--black2);
+  border-top: 0.5px solid var(--grey);
 }
