@@ -207,6 +207,7 @@ video {
 }
 .recent > p {
   margin-top: 8px;
+  font-size: 0.75rem;
 }
 .recent > button {
   background-color: var(--orange);
