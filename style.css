@@ -218,6 +218,3 @@ video {
   border-radius: 0.5rem;
   cursor: pointer;
 }
-.recent > button:hover {
-  background-color: var(--yellow);
-}
