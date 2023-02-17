@@ -157,6 +157,7 @@ ul {
   flex-direction: column;
   margin-top: 110px;
   gap: 20px;
+  font-size: 0.85rem;
 }
 li > svg {
   width: 15px;
