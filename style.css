@@ -8,6 +8,9 @@ button {
   background: none;
   border: none;
 }
+li {
+  list-style: none;
+}
 :root {
   --orange: rgb(240, 101, 67);
   --yellow: rgb(240, 157, 81);
@@ -35,7 +38,7 @@ body {
 .f1 {
   font-family: var(--f1);
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 750;
 }
 .f2 {
   font-family: var(--f2);
@@ -46,7 +49,7 @@ body {
 .background {
   position: relative;
   width: 385px;
-  height: 700px;
+  height: 750px;
   overflow: hidden;
 }
 .background::after {
@@ -87,7 +90,7 @@ body {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 700px;
+  height: 750px;
   overflow: hidden;
 }
 .main-container {
@@ -126,40 +129,48 @@ body {
 /* nav section */
 .navigation {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 110px;
 }
-nav {
-  font-size: 1rem;
-}
-ul {
-  list-style: none;
-}
-li {
+.navigation li {
+  background-color: var(--orange);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 18px;
+  border-radius: 0.5rem;
+  width: 165px;
+  height: 40px;
   cursor: pointer;
-  background-color: var(--black2);
-  border-top: 0.5px solid var(--grey);
-  border-right: 0.5px solid var(--grey);
-  color: var(--orange);
-  width: 220px;
-  height: 55px;
-  font-size: 0.85rem;
+}
+nav {
+  font-size: 1rem;
+  display: flex;
+  position: relative;
+  z-index: 5;
+  color: var(--black2);
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  margin-top: 110px;
+  gap: 20px;
 }
 li > svg {
-  width: 20px;
-  height: 20px;
-  fill: var(--orange);
-}
-li:hover {
-  border: 1px solid var(--orange);
+  width: 15px;
+  height: 15px;
+  fill: var(--black2);
 }
 video {
-  width: 163px;
-  height: 165px;
+  position: absolute;
+  width: 274px;
+  height: 220px;
+  left: 56px;
+  border-bottom: 1px solid var(--grey);
+  margin-top: 110px;
   background-color: var(--black2);
-  border-top: 0.5px solid var(--grey);
 }
 /* settings button and animation */
 @keyframes spin {
@@ -194,9 +205,9 @@ video {
 /* recent section */
 .recent {
   width: 274px;
-  height: 330px;
+  height: 340px;
   background-color: var(--black2);
-  margin: 0 0 0 56px;
+  margin: 110px 0 0 56px;
   padding: 12px;
   border: 3px solid transparent;
   font-size: 0.75rem;
