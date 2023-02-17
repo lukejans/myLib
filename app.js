@@ -85,6 +85,7 @@ function generateNextPermutation(word) {
     }
   }
   // convert array of character codes back to a string
+
   output = permutationAlphabet[chars[0]].toUpperCase();
   for (index = 1; index < chars.length; index++) {
     output = output + permutationAlphabet[chars[index]];
@@ -102,13 +103,3 @@ function stopPermutationAnimation(term, curr) {
   clearInterval(currentWord);
   document.getElementById(curr).innerHTML = term;
 }
-
-// /* SPIN ANIMATION */
-// const settings = document.querySelector('.settings');
-
-// settings.addEventListener('click', function (e) {
-//   e.preventDefault();
-//   settings.classList.remove('spin');
-//   void settings.offsetWidth;
-//   settings.classList.add('spin');
-// });

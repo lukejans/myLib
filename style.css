@@ -148,12 +148,12 @@ li > svg {
   height: 25px;
   fill: var(--grey);
 }
-li:hover > svg {
+/* li:hover > svg {
   fill: var(--orange);
 }
 li:hover {
   color: var(--orange);
-}
+} */
 video {
   width: 163px;
   height: 165px;
@@ -189,4 +189,32 @@ video {
   fill: var(--off-white);
   transform-origin: center center;
   animation: spin 1s ease;
+}
+/* recent section */
+.recent {
+  width: 274px;
+  height: 330px;
+  background-color: var(--black2);
+  margin: 54px 0 0 56px;
+  padding: 12px;
+  border: 3px solid transparent;
+  font-size: 0.75rem;
+}
+.recent > img {
+  padding: 25px 50px;
+  width: 100%;
+}
+.recent > p {
+  margin-top: 8px;
+}
+.recent > button {
+  background-color: var(--orange);
+  color: var(--black2);
+  width: 100%;
+  height: 40px;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.recent > button:hover {
+  background-color: var(--yellow);
 }
