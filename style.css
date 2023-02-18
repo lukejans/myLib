@@ -145,26 +145,26 @@ body {
   height: 40px;
   cursor: pointer;
 }
-nav {
+.navigation nav {
   font-size: 1rem;
   display: flex;
   position: relative;
   z-index: 5;
   color: var(--black2);
 }
-ul {
+.navigation ul {
   display: flex;
   flex-direction: column;
   margin-top: 110px;
   gap: 36px;
   font-size: 0.85rem;
 }
-li > svg {
+.navigation li > svg {
   width: 15px;
   height: 15px;
   fill: var(--black2);
 }
-video {
+.navigation video {
   position: absolute;
   width: 274px;
   height: 220px;
@@ -230,3 +230,7 @@ video {
   border-radius: 0.5rem;
   cursor: pointer;
 }
+/* toggle pages */
+/* #home {
+  display: none;
+} */
