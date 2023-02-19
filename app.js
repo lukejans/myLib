@@ -103,3 +103,21 @@ function stopPermutationAnimation(term, curr) {
   clearInterval(currentWord);
   document.getElementById(curr).innerHTML = term;
 }
+
+// type writer effect
+const title = document.getElementById('title');
+let phrase = 'myHome';
+let currentPhrase = [];
+let i = 0;
+function typeWriter() {
+  title.innerHTML = currentPhrase.join('');
+  if (i < phrase.length) {
+    currentPhrase.push(phrase[i]);
+    i++;
+    setTimeout(typeWriter, 200);
+  } else {
+    i = 0;
+    currentPhrase = [];
+  }
+}
+typeWriter();
