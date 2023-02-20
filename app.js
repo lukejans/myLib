@@ -121,3 +121,17 @@ function typeWriter() {
   }
 }
 typeWriter();
+
+/* //TODO: page toggle  
+! using classes for full page 
+- .home
+?remove .header-home .navigation . recent
+- .cache
+?- 
+- .stats 
+?-
+
+! using ID for title
+- #title 
+?alternate phrase on clicks of new pages or with above toggles^
+  */
