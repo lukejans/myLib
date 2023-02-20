@@ -239,9 +239,9 @@ body {
   cursor: pointer;
 }
 /* toggle pages */
-/* #home {
+.myHome {
   display: none;
-} */
+}
 .title {
   text-align: center;
   padding-top: 14px;
@@ -252,4 +252,43 @@ body {
   border-left: 1px solid var(--grey);
   position: absolute;
   margin-left: 110px;
+}
+/* CACHE PAGE */
+.cache {
+  width: 274px;
+  background-color: var(--black2);
+  position: relative;
+  top: 54px;
+  left: 56px;
+  overflow: hidden;
+  border: 1px solid saddlebrown;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  height: 55px;
+  padding: 12px;
+  border-bottom: 1px solid var(--grey);
+}
+.controls button {
+  margin-left: 90px;
+}
+.controls button:hover {
+  color: var(--off-white);
+  cursor: pointer;
+}
+.cache svg {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  fill: var(--grey);
+}
+.cache svg:hover {
+  fill: var(--off-white);
+  cursor: pointer;
+}
+.shelves {
+  width: 100%;
 }
