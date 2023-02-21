@@ -122,6 +122,17 @@ function typeWriter() {
 }
 typeWriter();
 
+// ellipse text
+const books = document.querySelectorAll('.book');
+
+books.forEach((book) => {
+  const text = book.textContent;
+
+  if (text.length > 90) {
+    book.textContent = text.substring(0, 90) + '...';
+  }
+});
+
 /* //TODO: page toggle  
 ! using classes for full page 
 - .home
