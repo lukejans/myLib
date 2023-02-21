@@ -85,7 +85,6 @@ function generateNextPermutation(word) {
     }
   }
   // convert array of character codes back to a string
-
   output = permutationAlphabet[chars[0]].toUpperCase();
   for (index = 1; index < chars.length; index++) {
     output = output + permutationAlphabet[chars[index]];
@@ -134,15 +133,13 @@ books.forEach((book) => {
 });
 
 /* //TODO: page toggle  
-! using classes for full page 
-- .home
-?remove .header-home .navigation . recent
-- .cache
-?- 
-- .stats 
-?-
+- .myHome
+? remove .header-home .navigation
+- .myCache
+?- if there are no books remove book height
 
-! using ID for title
-- #title 
-?alternate phrase on clicks of new pages or with above toggles^
+! title
+? alternate phrase on clicks of new pages
+? by setting the value of the clicked 
+? button to the name of the page
   */

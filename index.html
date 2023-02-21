@@ -58,10 +58,7 @@
               </svg>
               <button class="f2" type="button">select</button>
             </div>
-            <section class="books">
-              <div class="book f2"></div>
-              <div class="book f2"></div>
-            </section>
+            <section class="books"></section>
           </section>
           <section class="navigation myHome">
             <nav>
@@ -75,15 +72,6 @@
                       d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z" /></svg
                   ><span id="permutable1">Cache</span>
                 </li>
-                <li
-                  onmouseenter="startPermutationAnimation('permutable2')"
-                  onmouseleave="stopPermutationAnimation('Stats','permutable2')"
-                  onclick="stopPermutationAnimation('Stats','permutable2')">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path
-                      d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0s224 35.8 224 80zm-54.8 134.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432v-85.9z" /></svg
-                  ><span id="permutable2">Stats</span>
-                </li>
               </ul>
             </nav>
             <video autoplay loop muted playsinline poster>
@@ -91,20 +79,14 @@
               Your browser does not support the video tag.
             </video>
           </section>
-          <section class="recent myHome">
-            <h2 class="f1">Recent's</h2>
-            <p class="f2">
-              No items are in your cache. Add items to view recent.
-            </p>
-            <img src="./images/no-items.svg" alt="no items added" />
-            <button
-              onmouseenter="startPermutationAnimation('permutable4')"
-              onmouseleave="stopPermutationAnimation('Add','permutable4')"
-              onclick="stopPermutationAnimation('Add','permutable4')"
-              type="button"
-              class="no-items f2">
-              <span id="permutable4">Add</span>
-            </button>
+          <section class="myStats">
+            <h2 class="f1">myStats</h2>
+            <section class="no-items">
+              <p class="f2">
+                No items in your cache. Click `Cache` above to add items.
+              </p>
+              <img src="./images/no-items.svg" alt="no items added" />
+            </section>
           </section>
         </main>
       </div>
