@@ -29,14 +29,14 @@
             </svg>
           </button>
           <h3 class="title f1" id="title"></h3>
-          <button type="button" class="back">
+          <button type="button" class="back cache-off">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
               <path
                 d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
             </svg>
           </button>
           <div class="main-container">
-            <header class="header-home myHome">
+            <header class="header-home">
               <section class="profile">
                 <img src="./images/mprofile.png" alt="Profile Picture" />
               </section>
@@ -46,7 +46,7 @@
               </section>
             </header>
           </div>
-          <section class="cache myCache">
+          <section class="cache cache-off">
             <div class="controls">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path
@@ -60,10 +60,11 @@
             </div>
             <section class="books"></section>
           </section>
-          <section class="navigation myHome">
+          <section class="navigation">
             <nav>
               <ul>
                 <li
+                  class="switch-page"
                   onmouseenter="startPermutationAnimation('permutable1')"
                   onmouseleave="stopPermutationAnimation('Cache','permutable1')"
                   onclick="stopPermutationAnimation('Cache','permutable1')">
@@ -82,9 +83,7 @@
           <section class="myStats">
             <h2 class="f1">myStats</h2>
             <section class="no-items">
-              <p class="f2">
-                No items in your cache. Click `Cache` above to add items.
-              </p>
+              <p class="f2">No items are in your cache</p>
               <img src="./images/no-items.svg" alt="no items added" />
             </section>
           </section>

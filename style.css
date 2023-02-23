@@ -155,10 +155,7 @@ body {
   color: var(--black2);
 }
 .navigation ul {
-  display: flex;
-  flex-direction: column;
   margin-top: 55px;
-  gap: 28px;
   font-size: 0.85rem;
 }
 .navigation li > svg {
@@ -232,9 +229,11 @@ body {
 }
 
 /* toggle pages */
-.myCache {
+.home-off,
+.cache-off {
   display: none;
 }
+
 /* changing title */
 .title {
   text-align: center;

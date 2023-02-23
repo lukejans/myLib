@@ -133,13 +133,17 @@ books.forEach((book) => {
 });
 
 /* //TODO: page toggle  
-- .myHome
-? remove .header-home .navigation
-- .myCache
-?- if there are no books remove book height
-
-! title
-? alternate phrase on clicks of new pages
-? by setting the value of the clicked 
-? button to the name of the page
+//- query for elements
+- change phrase on page change 
+- create a function to load cache page
+- create a function to load home page
   */
+
+// show on home page
+const PROFILE = document.querySelector('.header-home');
+const NAV = document.querySelector('.navigation');
+// show on cache page
+const MY_CACHE = document.querySelector('.cache');
+const HOME_BTN = document.querySelector('.back');
+// nav button
+const NAV_BTN = document.querySelector('.switch-page');
