@@ -219,9 +219,14 @@ body {
   padding: 12px;
   font-size: 0.75rem;
 }
+.cache img,
 .myStats img {
   padding: 25px 50px;
   width: 100%;
+}
+.cache p {
+  padding: 12px 12px 36px 12px;
+  font-size: 0.75rem;
 }
 .myStats p {
   margin-top: 8px;

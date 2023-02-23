@@ -134,16 +134,48 @@ books.forEach((book) => {
 
 /* //TODO: page toggle  
 //- query for elements
-- change phrase on page change 
-- create a function to load cache page
-- create a function to load home page
+//- change phrase on page change 
+//- create a function to load cache page
+//- create a function to load home page
   */
 
 // show on home page
 const PROFILE = document.querySelector('.header-home');
 const NAV = document.querySelector('.navigation');
+const STATS = document.querySelector('.myStats');
 // show on cache page
 const MY_CACHE = document.querySelector('.cache');
 const HOME_BTN = document.querySelector('.back');
 // nav button
 const NAV_BTN = document.querySelector('.switch-page');
+// no items
+const NO_ITEMS = document.querySelector('.no-items');
+
+NAV_BTN.addEventListener('click', () => {
+  // change title
+  phrase = 'myCache';
+  typeWriter();
+  // remove home page sections
+  NAV.classList.add('home-off');
+  PROFILE.classList.add('home-off');
+  STATS.classList.add('home-off');
+  // add cache page sections
+  HOME_BTN.classList.remove('cache-off');
+  MY_CACHE.classList.remove('cache-off');
+  if (library.length === 0) {
+    NO_ITEMS.style.padding = '0';
+  }
+});
+
+HOME_BTN.addEventListener('click', () => {
+  // change title
+  phrase = 'myHome';
+  typeWriter();
+  // remove home page sections
+  NAV.classList.remove('home-off');
+  PROFILE.classList.remove('home-off');
+  STATS.classList.remove('home-off');
+  // add cache page sections
+  HOME_BTN.classList.add('cache-off');
+  MY_CACHE.classList.add('cache-off');
+});
