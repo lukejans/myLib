@@ -262,30 +262,43 @@ body {
 }
 .controls {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
   height: 55px;
   padding: 12px;
   border-bottom: 1px solid var(--grey);
 }
 .controls button {
-  margin-left: 90px;
+  height: 34px;
+  width: 34px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--orange);
+  border-radius: 50%;
+}
+.controls button:last-child {
+  margin-left: 80px;
+  background-color: transparent;
+}
+.controls button:last-child:hover {
+  background-color: transparent;
 }
 .controls button:hover {
   color: var(--off-white);
+  background-color: var(--yellow);
+  cursor: pointer;
+}
+.controls button:hover svg {
+  fill: var(--black2);
   cursor: pointer;
 }
 .cache svg {
-  width: 20px;
-  height: 20px;
-  margin: 5px;
-  fill: var(--grey);
-}
-.cache svg:hover {
   fill: var(--off-white);
-  cursor: pointer;
 }
+
 .books {
   width: 100%;
   display: grid;
