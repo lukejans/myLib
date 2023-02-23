@@ -164,6 +164,8 @@ NAV_BTN.addEventListener('click', () => {
   MY_CACHE.classList.remove('cache-off');
   if (library.length === 0) {
     NO_ITEMS.style.padding = '0';
+  } else {
+    NO_ITEMS.style.padding = '28px 14px';
   }
 });
 
