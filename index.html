@@ -46,9 +46,24 @@
               </section>
             </header>
           </div>
+          <form class="form-input form-off" id="add-book-form">
+            <label class="f2" for="ftitle">Title:</label> <br />
+            <input type="text" id="ftitle" name="ftitle" /><br />
+
+            <label class="f2" for="author">Author:</label> <br />
+            <input type="text" id="author" name="author" /><br />
+
+            <label class="f2" for="pages">Pages:</label> <br />
+            <input type="number" id="pages" name="pages" /><br />
+
+            <label class="f2" for="isRead">Current Page:</label>
+            <input type="number" id="isRead" name="isRead" /><br />
+
+            <button type="submit">Add Book</button>
+          </form>
           <section class="cache cache-off">
             <div class="controls">
-              <button type="button" id="add">
+              <button class="add-items" type="button" id="add">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                   <path
                     d="M240 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H176V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H384c17.7 0 32-14.3 32-32s-14.3-32-32-32H240V80z" />
@@ -63,8 +78,10 @@
               <button class="f2" type="button">select</button>
             </div>
             <section class="books no-items"></section>
-            <p class="f2">No items are in your cache</p>
-            <img src="./images/no-items.svg" alt="no items added" />
+            <section class="notice">
+              <p class="f2">No items are in your cache</p>
+              <img src="./images/no-items.svg" alt="no items added" />
+            </section>
           </section>
           <section class="navigation">
             <nav>

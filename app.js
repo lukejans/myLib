@@ -1,28 +1,3 @@
-// book storage
-let library = [];
-
-// create a constructor function for object creation
-const Book = function (title, author, pages, isRead) {
-  (this.title = title),
-    (this.author = author),
-    (this.pages = pages),
-    (this.isRead = isRead);
-};
-// shared function on prototype
-Book.prototype.info = function () {
-  return this;
-};
-
-// example using the constructor
-const book1 = new Book('Eloquent JavaScript', 'Haverbeke', 472, false);
-const book2 = new Book('JavaScript: The Good Parts', 'Crockford', 176, true);
-const book3 = new Book('Clean Code', 'C. Martin', 464, true);
-
-// create a function to store user book input in library
-function addToLibrary(book) {
-  return library.push(book);
-}
-
 /* HOVER ANIMATION
   next lexicographically permuted string of the original word
 */
@@ -121,24 +96,6 @@ function typeWriter() {
 }
 typeWriter();
 
-// ellipse text
-const books = document.querySelectorAll('.book');
-
-books.forEach((book) => {
-  const text = book.textContent;
-
-  if (text.length > 90) {
-    book.textContent = text.substring(0, 90) + '...';
-  }
-});
-
-/* //TODO: page toggle  
-//- query for elements
-//- change phrase on page change 
-//- create a function to load cache page
-//- create a function to load home page
-  */
-
 // show on home page
 const PROFILE = document.querySelector('.header-home');
 const NAV = document.querySelector('.navigation');
@@ -146,11 +103,16 @@ const STATS = document.querySelector('.myStats');
 // show on cache page
 const MY_CACHE = document.querySelector('.cache');
 const HOME_BTN = document.querySelector('.back');
+// show form for adding book
+const ADD_BTN = document.querySelector('.add-items');
+const BOOK_FORM = document.querySelector('.form-input');
 // nav button
 const NAV_BTN = document.querySelector('.switch-page');
 // no items
 const NO_ITEMS = document.querySelector('.no-items');
+const NOTICE = document.querySelector('.notice');
 
+// CACHE PAGE
 NAV_BTN.addEventListener('click', () => {
   // change title
   phrase = 'myCache';
@@ -162,22 +124,106 @@ NAV_BTN.addEventListener('click', () => {
   // add cache page sections
   HOME_BTN.classList.remove('cache-off');
   MY_CACHE.classList.remove('cache-off');
+  reSize();
+});
+// add/remove spacing when books are added/removed
+function reSize() {
   if (library.length === 0) {
     NO_ITEMS.style.padding = '0';
+    NOTICE.classList.remove('cache-off');
   } else {
     NO_ITEMS.style.padding = '28px 14px';
+    NOTICE.classList.add('cache-off');
   }
-});
-
+}
+// HOME PAGE
 HOME_BTN.addEventListener('click', () => {
   // change title
   phrase = 'myHome';
   typeWriter();
-  // remove home page sections
+  // add home page sections
   NAV.classList.remove('home-off');
   PROFILE.classList.remove('home-off');
   STATS.classList.remove('home-off');
-  // add cache page sections
+  // remove cache page sections
   HOME_BTN.classList.add('cache-off');
   MY_CACHE.classList.add('cache-off');
 });
+// FORM MODEL
+ADD_BTN.addEventListener('click', () => {
+  // add form sections
+  BOOK_FORM.classList.remove('form-off');
+  // remove cache page sections
+  HOME_BTN.classList.add('cache-off');
+  MY_CACHE.classList.add('cache-off');
+  reSize();
+});
+// book storage
+let library = [];
+
+// create a constructor function for object creation
+const Book = function (title, author, pages, isRead) {
+  (this.title = title),
+    (this.author = author),
+    (this.pages = pages),
+    (this.isRead = isRead);
+};
+// shared function on prototype
+Book.prototype.info = function () {
+  return this;
+};
+
+// create a function to store user book input in library
+function addToLibrary(book) {
+  return library.push(book);
+}
+
+// ellipse text
+const books = document.querySelectorAll('.book');
+
+books.forEach((book) => {
+  const text = book.textContent;
+
+  if (text.length > 90) {
+    book.textContent = text.substring(0, 90) + '...';
+  }
+});
+
+const BOOKS_SECTION = NO_ITEMS;
+
+function displayBooks() {
+  for (let i = 0; i < library.length; i++) {
+    const display = document.createElement('div');
+    display.innerHTML = library[i].title;
+    display.className = 'book';
+    BOOKS_SECTION.appendChild(display);
+  }
+}
+
+BOOK_FORM.addEventListener('submit', addBookToLibrary);
+
+function addBookToLibrary(event) {
+  event.preventDefault(); // prevent the form from submitting and reloading the page
+
+  // Get user input from form fields
+  const ftitle = document.querySelector('#ftitle').value;
+  const author = document.querySelector('#author').value;
+  const pages = document.querySelector('#pages').value;
+  const isRead = document.querySelector('#isRead').value;
+
+  // Create new Book object with user input
+  const newBook = new Book(ftitle, author, pages, isRead);
+
+  // Add new book to library
+  addToLibrary(newBook);
+
+  // Clear form fields
+  BOOK_FORM.reset();
+  BOOK_FORM.classList.add('form-off');
+  HOME_BTN.classList.remove('cache-off');
+  MY_CACHE.classList.remove('cache-off');
+
+  displayBooks();
+  reSize();
+}
+displayBooks();
