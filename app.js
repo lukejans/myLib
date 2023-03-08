@@ -167,6 +167,7 @@ const Book = function (title, author, pages, isRead) {
     (this.author = author),
     (this.pages = pages),
     (this.isRead = isRead);
+  this.uniqueId = library.length;
 };
 // shared function on prototype
 Book.prototype.info = function () {
@@ -192,6 +193,8 @@ books.forEach((book) => {
 const BOOKS_SECTION = NO_ITEMS;
 
 function displayBooks() {
+  BOOKS_SECTION.innerHTML = '';
+
   for (let i = 0; i < library.length; i++) {
     const display = document.createElement('div');
     display.innerHTML = library[i].title;
@@ -226,4 +229,45 @@ function addBookToLibrary(event) {
   displayBooks();
   reSize();
 }
-displayBooks();
+
+// Select Button
+const SELECT_BTN = document.querySelector('.select');
+let isSelecting = false;
+
+SELECT_BTN.addEventListener('click', () => {
+  isSelecting = !isSelecting;
+  if (isSelecting) {
+    startPermutationAnimation('permutable2');
+  } else {
+    stopPermutationAnimation('Select', 'permutable2');
+  }
+});
+
+document.addEventListener('click', (event) => {
+  if (isSelecting && event.target.classList.contains('book')) {
+    event.target.classList.toggle('selected');
+  } else {
+    document.querySelectorAll('.selected').forEach((elem) => {
+      elem.classList.remove('selected');
+    });
+  }
+});
+
+// delete button
+const DELETE_BTN = document.querySelector('#delete');
+DELETE_BTN.addEventListener('click', () => {
+  const selectedElems = document.querySelectorAll('.selected');
+  selectedElems.forEach((elem) => {
+    const title = elem.textContent;
+    // remove selected book from DOM
+    elem.remove();
+    // remove selected book from library array
+    for (let i = 0; i < library.length; i++) {
+      if (library[i].title === title) {
+        library.splice(i, 1);
+        break;
+      }
+    }
+  });
+  reSize();
+});

@@ -319,7 +319,6 @@ form > button,
   font-size: 0.6rem;
 }
 .book:hover {
-  border: 3px solid var(--yellow);
   color: var(--off-white);
   transform: scale(1.1);
 }
