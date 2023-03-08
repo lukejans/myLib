@@ -148,13 +148,14 @@ HOME_BTN.addEventListener('click', () => {
   // remove cache page sections
   HOME_BTN.classList.add('cache-off');
   MY_CACHE.classList.add('cache-off');
+  // remove form if visible
+  BOOK_FORM.classList.toggle('form-off');
 });
 // FORM MODEL
 ADD_BTN.addEventListener('click', () => {
   // add form sections
   BOOK_FORM.classList.remove('form-off');
   // remove cache page sections
-  HOME_BTN.classList.add('cache-off');
   MY_CACHE.classList.add('cache-off');
   reSize();
 });
@@ -197,7 +198,7 @@ function displayBooks() {
 
   for (let i = 0; i < library.length; i++) {
     const display = document.createElement('div');
-    display.innerHTML = library[i].title;
+    display.textContent = library[i].title;
     display.className = 'book';
     BOOKS_SECTION.appendChild(display);
   }
