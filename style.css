@@ -298,7 +298,14 @@ form > button,
   cursor: pointer;
 }
 .cache svg {
+  position: absolute;
+  top: 18px;
+  left: 22px;
+  width: 15px;
   fill: var(--off-white);
+}
+.cache #delete svg {
+  left: 75px;
 }
 .books {
   width: 100%;
