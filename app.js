@@ -149,7 +149,7 @@ HOME_BTN.addEventListener('click', () => {
   HOME_BTN.classList.add('cache-off');
   MY_CACHE.classList.add('cache-off');
   // remove form if visible
-  BOOK_FORM.classList.toggle('form-off');
+  BOOK_FORM.classList.add('form-off');
 });
 // FORM MODEL
 ADD_BTN.addEventListener('click', () => {
