@@ -56,7 +56,13 @@
             <input required type="text" id="author" name="author" /><br />
 
             <label class="f2" for="pages">Pages:</label> <br />
-            <input required type="number" id="pages" name="pages" /><br />
+            <input
+              required
+              type="number"
+              id="pages"
+              name="pages"
+              pattern="[0-9]*"
+              inputmode="numeric" /><br />
 
             <label class="f2" for="isRead">Finished:</label>
             <input
