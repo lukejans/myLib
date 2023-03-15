@@ -307,3 +307,11 @@ DELETE_BTN.addEventListener('click', () => {
   });
   reSize();
 });
+
+const SAFARI = document.querySelector('.inputcheck');
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+if (isSafari) {
+  SAFARI.classList.add('adjust');
+} else {
+  console.log('User is not using Safari');
+}
