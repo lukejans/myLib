@@ -327,9 +327,8 @@ form > button,
   word-wrap: break-word;
   font-size: 0.6rem;
 }
-.book:hover {
-  color: var(--off-white);
-  transform: scale(1.1);
+.book:active {
+  transform: scale(0.9);
 }
 form {
   position: absolute;
@@ -368,4 +367,7 @@ input {
 }
 .adjust {
   left: 115px;
+}
+.selected {
+  border: 3px solid var(--off-white);
 }
