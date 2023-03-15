@@ -111,6 +111,40 @@ const NAV_BTN = document.querySelector('.switch-page');
 // no items
 const NO_ITEMS = document.querySelector('.no-items');
 const NOTICE = document.querySelector('.notice');
+// statistics page
+const DATA_INFO = document.querySelector('.statistics');
+function checkStats() {
+  calcPages();
+  if (library.length > 0) {
+    DATA_INFO.innerHTML = `<p class="f2">Books: ${library.length}</p> 
+    <p class="f2">Pages read: ${pageStat} / ${pageStatNo}</p>
+    <p class="f2">Finished: ${finishedStat}</p>`;
+  } else if (library.length === 0) {
+    DATA_INFO.innerHTML = `<p class="f2">No items are in your cache</p>
+    <img src="./images/no-items.svg" alt="no items added" />`;
+  }
+}
+let finishedStat = 0;
+let pageStat = 0;
+let pageStatNo = 0;
+function calcPages() {
+  pageStat = 0;
+  pageStatNo = 0;
+  finishedStat = 0;
+  for (const book of library) {
+    for (const prop in book) {
+      if (prop === 'pages' && book['isRead']) {
+        pageStat += Number(book[prop]);
+        pageStatNo += Number(book[prop]);
+      } else if (prop === 'pages') {
+        pageStatNo += Number(book[prop]);
+      }
+      if (prop === 'isRead') {
+        finishedStat += book[prop];
+      }
+    }
+  }
+}
 
 // CACHE PAGE
 NAV_BTN.addEventListener('click', () => {
@@ -141,6 +175,7 @@ HOME_BTN.addEventListener('click', () => {
   // change title
   phrase = 'myHome';
   typeWriter();
+  checkStats();
   // add home page sections
   NAV.classList.remove('home-off');
   PROFILE.classList.remove('home-off');
@@ -213,7 +248,7 @@ function addBookToLibrary(event) {
   const ftitle = document.querySelector('#ftitle').value;
   const author = document.querySelector('#author').value;
   const pages = document.querySelector('#pages').value;
-  const isRead = document.querySelector('#isRead').value;
+  const isRead = document.querySelector('#isRead').checked;
 
   // Create new Book object with user input
   const newBook = new Book(ftitle, author, pages, isRead);

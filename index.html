@@ -56,8 +56,12 @@
             <label class="f2" for="pages">Pages:</label> <br />
             <input required type="number" id="pages" name="pages" /><br />
 
-            <label class="f2" for="isRead">Current Page:</label>
-            <input required type="number" id="isRead" name="isRead" /><br />
+            <label class="f2" for="isRead">Finished:</label>
+            <input
+              value="true"
+              type="checkbox"
+              id="isRead"
+              name="isRead" /><br />
 
             <button type="submit">Add Book</button>
           </form>
@@ -107,7 +111,7 @@
           </section>
           <section class="myStats">
             <h2 class="f1">myStats</h2>
-            <section>
+            <section class="statistics">
               <p class="f2">No items are in your cache</p>
               <img src="./images/no-items.svg" alt="no items added" />
             </section>

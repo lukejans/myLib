@@ -219,6 +219,8 @@ form > button,
   margin: 54px 0 0 56px;
   padding: 12px;
   font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
 }
 .cache img,
 .myStats img {
@@ -333,7 +335,7 @@ form {
   position: absolute;
   padding: 12px;
   background-color: var(--black2);
-  height: 385px;
+  height: 331px;
   width: 275px;
   z-index: 10;
   border: 1px solid var(--grey);
@@ -342,7 +344,7 @@ form {
 }
 form > button {
   width: 100%;
-  margin-top: 12px;
+  margin-top: 24px;
   font-family: var(--f2), monospace;
 }
 input {
@@ -358,4 +360,9 @@ input {
 }
 .notice {
   border-bottom: 1px solid var(--black);
+}
+[type='checkbox'] {
+  height: 20px;
+  position: absolute;
+  left: -10px;
 }
