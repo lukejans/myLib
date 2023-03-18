@@ -206,7 +206,8 @@ const Book = function (title, author, pages, isRead) {
   this.uniqueId = library.length;
 };
 // shared function on prototype
-Book.prototype.info = function () {
+Book.prototype.readUnread = function () {
+  this.isRead = !this.isRead;
   return this;
 };
 
