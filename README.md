@@ -7,3 +7,4 @@
 - [ ] user login
 - [ ] implement database (firebase)
 - [ ] allow users to take notes / update book progress
+- [ ] refactor and add methods to prototype that are relevant to books
