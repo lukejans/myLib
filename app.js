@@ -1,35 +1,39 @@
-// book storage
-let library = [];
+class Book {
+  constructor(title, author, numOfPages, curPage) {
+    this.title = title || '';
+    this.author = author || '';
+    this.numOfPages = numOfPages || 0;
+    this.curPage = curPage || 0;
+    this.readTime = {
+      value: '',
+      startDate: new Date(),
+      finishDate: {},
+    };
+    this.notes = {};
+  }
 
-// create a constructor function for object creation
-const Book = function (title, author, pages, isRead) {
-  (this.title = title),
-    (this.author = author),
-    (this.pages = pages),
-    (this.isRead = isRead);
-  this.uniqueId = library.length;
-};
-
-// shared function on prototype
-Book.prototype.readUnread = function () {
-  this.isRead = !this.isRead;
-  return this;
-};
-
-// create a function to store user book input in library
-function addToLibrary(book) {
-  return library.push(book);
-}
-
-function addBookToLibrary(event) {
-  event.preventDefault(); // prevent the form from submitting and reloading the page
-
-  // Create new Book object with user input
-  const newBook = new Book(ftitle, author, pages, isRead);
-
-  // Add new book to library
-  addToLibrary(newBook);
-
-  displayBooks();
-  reSize();
+  finishBook() {
+    // description:
+    //  - sets this.finishDate
+    //  - sets this.readTime.value that changes its time format based on the length
+    //    of reading time (days, hours, minutes)
+    if (!this.readTime.value) {
+      this.readTime.finishDate = new Date();
+      let time =
+        (this.readTime.finishDate - this.readTime.startDate) / 1000 / 60 / 60;
+      let format = 'hours';
+      if (time >= 24) {
+        format = 'days';
+        time /= 24;
+      }
+      this.readTime.value = `${time.toFixed(1)} ${format}`;
+      console.log(
+        `Congratulations! you finished ${this.title} in ${this.readTime.value}`
+      );
+    } else {
+      console.log(
+        `Book already finished! ${this.readTime.value} spent reading: ${this.title}`
+      );
+    }
+  }
 }
