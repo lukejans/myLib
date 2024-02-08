@@ -1,14 +1,33 @@
 # myLib
 
-## Book
+> console based book & note tracker
+
+This project was built while completing curriculum from the odin project on the nodeJS path. In this project I learnt about constructor functions and prototypal inheritance and how JavaScripts `Class` syntax uses these language features.
+
+## Book Objects Construction
+
+- class constructor() \*public create
 
 ### property fields
 
-- title
-- author
-- number of pages
-- current page
-- time to read (TTR):
-  - if the user is inputting a book they have already read use the TTR argument passed in the console
-  - when the user starts reading a new book create a new `Date` when the user finishes the book create another new date object and compare the values to determine the TTR
-- notes
+- title {String} [set upon object creation]
+- author {String} [set upon object creation]
+- number of pages {Number} [set upon object creation]
+- current page {Number}
+- time to read (TTR): {Object}
+  - value {Number}
+  - startDate {String}
+  - endDate {String}
+- notes {Object}
+
+### property methods
+
+- getTTR() \*private
+  - used in
+  - if TTR.value is set return it
+  - else if TTR.value is undefined, the user has not finished the book therefore endDate must also be undefined. All books are given a TTR.startDate upon creation so create a new Date object to compare startDate to curDate and return time to read
+- setTTR() \*private
+  - used in finishBook() method
+  - set endDate to a new Date object
+- get checkReadTime() \*public
+- set finishBook() \*public
