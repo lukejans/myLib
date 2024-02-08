@@ -1,101 +1,3 @@
-// show on home page
-const PROFILE = document.querySelector('.header-home');
-const NAV = document.querySelector('.navigation');
-const STATS = document.querySelector('.myStats');
-// show on cache page
-const MY_CACHE = document.querySelector('.cache');
-const HOME_BTN = document.querySelector('.back');
-// show form for adding book
-const ADD_BTN = document.querySelector('.add-items');
-const BOOK_FORM = document.querySelector('.form-input');
-// nav button
-const NAV_BTN = document.querySelector('.switch-page');
-// no items
-const NO_ITEMS = document.querySelector('.no-items');
-const NOTICE = document.querySelector('.notice');
-// statistics page
-const DATA_INFO = document.querySelector('.statistics');
-function checkStats() {
-  calcPages();
-  if (library.length > 0) {
-    DATA_INFO.innerHTML = `<p class="f2">Books: ${library.length}</p> 
-    <p class="f2">Pages read: ${pageStat} / ${pageStatNo}</p>
-    <p class="f2">Finished: ${finishedStat}</p>`;
-  } else if (library.length === 0) {
-    DATA_INFO.innerHTML = `<p class="f2">No items are in your cache</p>
-    <img src="./images/no-items.svg" alt="no items added" />`;
-  }
-}
-let finishedStat = 0;
-let pageStat = 0;
-let pageStatNo = 0;
-function calcPages() {
-  pageStat = 0;
-  pageStatNo = 0;
-  finishedStat = 0;
-  for (const book of library) {
-    for (const prop in book) {
-      if (prop === 'pages' && book['isRead']) {
-        pageStat += Number(book[prop]);
-        pageStatNo += Number(book[prop]);
-      } else if (prop === 'pages') {
-        pageStatNo += Number(book[prop]);
-      }
-      if (prop === 'isRead') {
-        finishedStat += book[prop];
-      }
-    }
-  }
-}
-
-// CACHE PAGE
-NAV_BTN.addEventListener('click', () => {
-  // change title
-  phrase = 'myCache';
-  typeWriter();
-  // remove home page sections
-  NAV.classList.add('home-off');
-  PROFILE.classList.add('home-off');
-  STATS.classList.add('home-off');
-  // add cache page sections
-  HOME_BTN.classList.remove('cache-off');
-  MY_CACHE.classList.remove('cache-off');
-  reSize();
-});
-// add/remove spacing when books are added/removed
-function reSize() {
-  if (library.length === 0) {
-    NO_ITEMS.style.padding = '0';
-    NOTICE.classList.remove('cache-off');
-  } else {
-    NO_ITEMS.style.padding = '28px 14px';
-    NOTICE.classList.add('cache-off');
-  }
-}
-// HOME PAGE
-HOME_BTN.addEventListener('click', () => {
-  // change title
-  phrase = 'myHome';
-  typeWriter();
-  checkStats();
-  // add home page sections
-  NAV.classList.remove('home-off');
-  PROFILE.classList.remove('home-off');
-  STATS.classList.remove('home-off');
-  // remove cache page sections
-  HOME_BTN.classList.add('cache-off');
-  MY_CACHE.classList.add('cache-off');
-  // remove form if visible
-  BOOK_FORM.classList.add('form-off');
-});
-// FORM MODEL
-ADD_BTN.addEventListener('click', () => {
-  // add form sections
-  BOOK_FORM.classList.remove('form-off');
-  // remove cache page sections
-  MY_CACHE.classList.add('cache-off');
-  reSize();
-});
 // book storage
 let library = [];
 
@@ -107,6 +9,7 @@ const Book = function (title, author, pages, isRead) {
     (this.isRead = isRead);
   this.uniqueId = library.length;
 };
+
 // shared function on prototype
 Book.prototype.readUnread = function () {
   this.isRead = !this.isRead;
@@ -118,40 +21,8 @@ function addToLibrary(book) {
   return library.push(book);
 }
 
-// ellipse text
-const books = document.querySelectorAll('.book');
-
-books.forEach((book) => {
-  const text = book.textContent;
-
-  if (text.length > 90) {
-    book.textContent = text.substring(0, 90) + '...';
-  }
-});
-
-const BOOKS_SECTION = NO_ITEMS;
-
-function displayBooks() {
-  BOOKS_SECTION.innerHTML = '';
-
-  for (let i = 0; i < library.length; i++) {
-    const display = document.createElement('div');
-    display.textContent = library[i].title;
-    display.className = 'book';
-    BOOKS_SECTION.appendChild(display);
-  }
-}
-
-BOOK_FORM.addEventListener('submit', addBookToLibrary);
-
 function addBookToLibrary(event) {
   event.preventDefault(); // prevent the form from submitting and reloading the page
-
-  // Get user input from form fields
-  const ftitle = document.querySelector('#ftitle').value;
-  const author = document.querySelector('#author').value;
-  const pages = document.querySelector('#pages').value;
-  const isRead = document.querySelector('#isRead').checked;
 
   // Create new Book object with user input
   const newBook = new Book(ftitle, author, pages, isRead);
@@ -159,66 +30,6 @@ function addBookToLibrary(event) {
   // Add new book to library
   addToLibrary(newBook);
 
-  // Clear form fields
-  BOOK_FORM.reset();
-  BOOK_FORM.classList.add('form-off');
-  HOME_BTN.classList.remove('cache-off');
-  MY_CACHE.classList.remove('cache-off');
-
   displayBooks();
   reSize();
 }
-
-// Select Button
-const SELECT_BTN = document.querySelector('.select');
-let isSelecting = false;
-
-SELECT_BTN.addEventListener('click', () => {
-  isSelecting = !isSelecting;
-  if (isSelecting) {
-    startPermutationAnimation('permutable2');
-  } else {
-    stopPermutationAnimation('Select', 'permutable2');
-  }
-});
-
-document.addEventListener('click', (event) => {
-  if (isSelecting && event.target.classList.contains('book')) {
-    event.target.classList.toggle('selected');
-  } else {
-    document.querySelectorAll('.selected').forEach((elem) => {
-      elem.classList.remove('selected');
-    });
-  }
-});
-
-// delete button
-const DELETE_BTN = document.querySelector('#delete');
-DELETE_BTN.addEventListener('click', () => {
-  const selectedElems = document.querySelectorAll('.selected');
-  selectedElems.forEach((elem) => {
-    const title = elem.textContent;
-    // remove selected book from DOM
-    elem.remove();
-    // remove selected book from library array
-    for (let i = 0; i < library.length; i++) {
-      if (library[i].title === title) {
-        library.splice(i, 1);
-        break;
-      }
-    }
-  });
-  reSize();
-});
-
-const SAFARI = document.querySelector('.inputcheck');
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-if (isSafari) {
-  SAFARI.classList.add('adjust');
-} else {
-  console.log('User is not using Safari');
-}
-console.clear(); // remove when debugging
-console.log(
-  "\n             .--.           .---.        .-.\n         .---|--|   .-.     |   |  .---. |~|    .--.\n      .--|===|  |---|_|--.__|   |--|:::| |~|-==-|==|---.\n      |  |   |  |===| |~~|  |   |--|   |_|~|    |  |___|-.\n      |  |   |  |===| |==|  |   |  |:::|=| |    |  |---|=|\n      |  |   |  |   |_|__|  |   |__|   | | |    |  |___| |\n      |  |===|--|===| |~~|  |~~~|--|:::|=|~|----|==|---|=|\n      ^--^---'--^---^-^--^--^---'--^---^-^-^-==-^--^---^-'\n   \n\n\n  myBooks\n  myWords\n  myCache"
-);
