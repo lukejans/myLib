@@ -20,9 +20,14 @@
 
 > console based book & note tracker
 
-This project was built while completing curriculum from the odin project on the nodeJS path. In this project I learnt about constructor functions and prototypal inheritance and how JavaScripts `Class` syntax uses these language features.
+## Features
+- ISBN scanner
+- add books via ISBN (openLibrary or Google Books API)
+- option to add a custom entry
+- make notes on books being read
 
 ## Book Objects Construction
+the user can add a book via ISBN to their library and it will automatically fill data for the book object. If the user chooses to add a custom entry they will have to manually fill all the book data during object creation and can also edit it later.
 
 - class constructor() \*public create
 
@@ -50,43 +55,3 @@ This project was built while completing curriculum from the odin project on the 
 - get checkReadTime() \*public
 - set finishBook() \*public
 
-## old code
-
-```JavaScript
-
-// book storage
-let library = [];
-
-// create a constructor function for object creation
-const Book = function (title, author, pages, isRead) {
-  (this.title = title),
-    (this.author = author),
-    (this.pages = pages),
-    (this.isRead = isRead);
-  this.uniqueId = library.length;
-};
-
-// shared function on prototype
-Book.prototype.readUnread = function () {
-  this.isRead = !this.isRead;
-  return this;
-};
-
-// create a function to store user book input in library
-function addToLibrary(book) {
-  return library.push(book);
-}
-
-function addBookToLibrary(event) {
-  event.preventDefault(); // prevent the form from submitting and reloading the page
-
-  // Create new Book object with user input
-  const newBook = new Book(ftitle, author, pages, isRead);
-
-  // Add new book to library
-  addToLibrary(newBook);
-
-  displayBooks();
-  reSize();
-}
-```
